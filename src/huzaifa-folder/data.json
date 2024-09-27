@@ -1,0 +1,24 @@
+{
+    "defaultusers": [
+      {
+        "Name": "UMER",
+        "Email": "umer@gmail.com",
+        "PhoneNo": "0300-000000"
+      },
+      {
+        "Name": "Hanzala",
+        "Email": "hanzala@gmail.com",
+        "PhoneNo": "0300-123456"
+      },
+      {
+        "Name": "Hamza",
+        "Email": "Hamza@gmail.com",
+        "PhoneNo": "0312-345000"
+      },
+      {
+        "Name": "Abu-bakar",
+        "Email":"abubakar@gmail.com",
+        "PhoneNo":"0333-3333333"
+      }
+    ]
+  }
