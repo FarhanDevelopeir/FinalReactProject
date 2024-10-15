@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { updateData } from "./features/HomeSlice";
 
 const InputData = () => {
 
+  const dispatch=useDispatch()
+  const storeData = useSelector((state) => state.HomePage.storeUserData || []);
+
   const [userData, setUserData] =useState({Email:'',Name:'',No:''})
   const handleName=(e)=>{
-    setUserData({...userData, Name : e.target.value})
-
+    setUserData({...userData, Name : e.target.value.toUpperCase()})
   }
 
   const handleNo=(e)=>{
@@ -20,13 +24,21 @@ const InputData = () => {
 
   const handleEmail=(e)=>{
     setUserData({...userData, Email : e.target.value})
-
   }
-  const formHandling =(e)=>{
-    e.preventDefault()
-    console.log(userData);
-    
-  }
+  const formHandling = (e) => {
+    e.preventDefault();
+    if (!userData.Email || !userData.Name || !userData.No) {
+      alert("Please fill in all fields.");
+      return;
+    }
+  
+    // Ensure storeData is an array
+    dispatch(updateData([...storeData, userData]));
+    setUserData({ Email: '', Name: '', No: '' });
+  };
+  useEffect(()=>{
+    console.log(storeData);
+  },[storeData])
   return (
     <div>
       <form className=" w-full my-10 " onSubmit={formHandling}>
@@ -97,8 +109,8 @@ const InputData = () => {
             <br />
           </div>
           <center>
-            <button className="bg-slate-800 text-white font-sans font-semibold hover:bg-slate-950 w-[30%] h-[60px] my-2 border-[2px] border-black rounded-xl">
-              Add User
+            <button className="bg-slate-800 text-white text-[30px] font-sans font-semibold hover:bg-slate-950 w-[30%] h-[60px] my-2 border-[2px] border-black rounded-xl">
+              Add
             </button>
           </center>
         </div>

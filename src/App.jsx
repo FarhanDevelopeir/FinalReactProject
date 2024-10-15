@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Home from "./huzaifa-folder/Home";
-import Main from "./huzaifa-folder/Main";
+import Main from "./huzaifa-folder/OutletHeader";
 import InputData from "./huzaifa-folder/InputData";
 
 function App() {
