@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import DetailPage from "./Components/DetailPage";
+import Admin from "./Components/Admin";
+import Projected from "./Components/Projected";
+import LoginPage from "./Components/LoginPage";
 
 function App() {
   return (
@@ -17,6 +20,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/details/:name" element={<DetailPage/>} />
+            <Route path="/admin" element={<Projected Component={Admin} />}/>
+            <Route path="/login" element={<LoginPage/>} />
 
           </Route>
         </Routes>
