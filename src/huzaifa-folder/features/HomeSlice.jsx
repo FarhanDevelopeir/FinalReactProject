@@ -12,7 +12,9 @@ const HomeSlice = createSlice({
             state.storeUserData = action.payload;
         },
         removeUser: (state, action) => {
-            state.storeUserData = state.storeUserData.filter((user) => user.Name !== action.payload);
+            
+            const filterUsers = state.storeUserData.filter((user) => user.Name !== action.payload);
+            state.storeUserData=filterUsers
         }
     }
 });
