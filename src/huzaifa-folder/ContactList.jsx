@@ -117,7 +117,7 @@ const ContactList = () => {
       </div>
       { updateUser && (
         <InputData 
-          Data={updateUser}
+        data={updateUser}
         />
       )}
       {removeUser && (

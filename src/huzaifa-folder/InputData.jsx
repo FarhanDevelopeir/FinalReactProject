@@ -8,15 +8,8 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "./features/HomeSlice";
 
-const InputData = ({ Data}) => {
-
-  const [userInfo, setUserInfo] = useState({
-    Email: Data ? Data.Email : '',
-    Name: Data ? Data.Name : '',
-    No: Data ? Data.No : '',
-  })
-
-  console.log(Data)
+const InputData = ({ data}) => {
+  console.log(data)
   const countValue=-1
   const dispatch=useDispatch()
   const storeData = useSelector((state) => state.HomePage.storeUserData || []);
